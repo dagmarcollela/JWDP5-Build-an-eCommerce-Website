@@ -1,0 +1,28 @@
+$primaryColor: #f3eaf1;
+
+$fontCairo: 'Cairo', sans-serif;
+
+
+html, body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    background-color: $primaryColor;
+    
+    & .container{
+        width: 100vw;
+        height: 100vh;
+
+        & a{
+            text-decoration: none;
+        }
+
+        & #container__logoText{
+            font-family: $fontCairo;
+            color: $primaryColor;
+        }
+    }
+}

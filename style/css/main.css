@@ -1,0 +1,25 @@
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f3eaf1;
+}
+
+main .container {
+  width: 100vw;
+  height: 100vh;
+}
+
+main .container a {
+  text-decoration: none;
+}
+
+main .container #container__logoText {
+  font-family: "Cairo", sans-serif;
+  color: #f3eaf1;
+}
+/*# sourceMappingURL=main.css.map */
