@@ -1,12 +1,28 @@
 html, body {
   overflow-x: hidden;
   overflow-y: hidden;
+  height: 100%;
+}
+
+header #header__navBar {
+  background-color: #f3eaf1;
+}
+
+header #header__navBar .logo_img {
+  margin-right: 10%;
+}
+
+header #header__navBar .cart {
+  margin-right: 5%;
+}
+
+header #header__navBar .cart .bx-cart:before {
+  font-size: 2rem;
 }
 
 main {
   width: 100vw;
-  height: 100vh;
-  background-color: #f3eaf1;
+  height: 80vh;
 }
 
 main .container {
@@ -20,6 +36,21 @@ main .container a {
 
 main .container #container__logoText {
   font-family: "Cairo", sans-serif;
-  color: #f3eaf1;
+}
+
+main .container #first_row {
+  padding-top: 5%;
+}
+
+main .container #second-row {
+  padding-top: 15%;
+}
+
+main .container #second-row #btn-goto-shopping {
+  border-radius: 20px;
+}
+
+main .container #third-row {
+  padding-top: 5%;
 }
 /*# sourceMappingURL=main.css.map */
