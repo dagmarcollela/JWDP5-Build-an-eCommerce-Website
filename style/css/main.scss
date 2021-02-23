@@ -1,28 +1,57 @@
 $primaryColor: #f3eaf1;
+$whiteColor: white;
 
 $fontCairo: 'Cairo', sans-serif;
 
-
+// HOME PAGE START
 html, body{
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height: 100%;
+}
+header{
+    & #header__navBar{
+        background-color: $primaryColor;
+
+        & .logo_img{
+            margin-right: 10%;
+        }
+    
+        & .cart{
+            margin-right: 5%;
+
+            & .bx-cart:before{
+                font-size: 2rem;
+            }
+        }
+    }
 }
 main{
     width: 100vw;
-    height: 100vh;
-    background-color: $primaryColor;
+    height: 80vh;
     
     & .container{
         width: 100vw;
         height: 100vh;
-
         & a{
             text-decoration: none;
         }
-
         & #container__logoText{
             font-family: $fontCairo;
-            color: $primaryColor;
+        }
+        & #first_row{
+            padding-top: 5%;
+        }
+        & #second-row{
+            padding-top: 15%;
+
+            & #btn-goto-shopping{
+                border-radius: 20px;
+            }
+        }
+        & #third-row{
+            padding-top: 5%;
         }
     }
 }
+//HOME PAGE END
