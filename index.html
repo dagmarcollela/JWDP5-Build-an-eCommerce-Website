@@ -19,67 +19,63 @@
   <body>
 <!-- START HEADER-->
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light" id="header__navBar">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">CAMERAS </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="#">ORINOCO </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                  </li>
-                </ul>
-              </div>
-              <div class="cart">
+            </button>
+
+            <div class="logo_img">
+                <img src="./imgs/logowebsite.png" alt="Logo website"/>
+            </div>
+    
+            <div class="cart">
                 <a href="cart.html" class="cart__page"><i class='bx bx-cart nav__cart' ><span class="cart__number">0</span></i></a>
-                <i class='bx bx-menu nav__toggle' id="nav-toggle" ></i>
             </div>
-            </div>
-          </nav>
+        </nav>
     </header>
 <!-- END HEADER-->
 <!-- START MAIN-->
     <main>
         <div class="container">
-            <div class="row align-items-start">
-              <div class="col">
-                <a href="#"><h1 id="container__logoText">CAMERAS</h1></a>
+            <div class="row align-items-start" id="first_row">
+              <div class="col" id="col_btn">
+                <a href="#"><h1 id="container__logoText">ORINOCO</h1></a>
               </div>
-              <div class="col">
-                
-              </div>
-              <div class="col">
-                
-              </div>
+              <div class="col"></div>
+              <div class="col"></div>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center" id="second-row">
               <div class="col">
-                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                <button type="button" class="btn btn-primary btn-lg" id="btn-goto-shopping" disabled>Shopping Now</button>
               </div>
               <div class="col">
-                        
+                <label for="errorMsg" class="text-danger" id="lb_msg_error"><h1>Sorry, but the server is offline</h1></label>
               </div>
-              <div class="col">
-                
-              </div>
+              <div class="col"></div>
             </div>
-            <div class="row align-items-end">
+            <div class="row align-items-end" id="third-row">
+              <div class="col"></div>
+              <div class="col"></div>
               <div class="col">
-                
-              </div>
-              <div class="col">
-                
-              </div>
-              <div class="col">
-                <img src="./imgs/camerashomepage.jpg">
+                <img src="./imgs/camerashomepage.jpg" alt="different cameras in make and size">
               </div>
             </div>
           </div>
@@ -87,9 +83,45 @@
     <!-- END MAIN-->
     <!--START FOOTER-->
     <footer>
-        
+        <div class="bloc d-bloc" id="bloc-8">
+            <div class="container bloc-sm">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-center white">
+                            ORINOCO - The best E-commerce website.<br>
+                        </p>
+                        <div class="row row-no-gutters social">
+                            <div class="col-sm-3">
+                                <div class="text-center">
+                                    <a class="social" aria-label="Twitter" href="index.html"><span class="fa fa-twitter icon-md"></span></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="text-center">
+                                    <a class="social" aria-label="Facebook" href="index.html"><span class="fa fa-facebook icon-md"></span></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="text-center">
+                                    <a class="social" aria-label="Dribbble" href="index.html"><span class="fa fa-dribbble icon-md"></span></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="text-center">
+                                    <a class="social" aria-label="Instagram" href="index.html"><span class="fa fa-instagram icon-md"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
+    <script src="./api/home.js"></script>
 
+        <!--Fontawesome-->
+    <script src="https://kit.fontawesome.com/d09ac24993.js" crossorigin="anonymous"></script>
+        <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
 </html>
