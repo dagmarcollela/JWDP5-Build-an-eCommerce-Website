@@ -1,0 +1,35 @@
+$primaryColor: #f3eaf1;
+$whiteColor: white;
+
+$fontCairo: 'Cairo', sans-serif;
+
+html, body{
+    height: 100%;
+}
+header{
+    & #header__navBar{
+        background-color: $primaryColor;
+
+        & .logo_img{
+            margin-right: 10%;
+        }
+    
+        & .cart{
+            margin-right: 5%;
+
+            & .bx-cart:before{
+                font-size: 2rem;
+            }
+        }
+    }
+}
+main{
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 25%;
+
+}
