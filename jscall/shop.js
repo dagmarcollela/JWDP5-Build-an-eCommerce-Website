@@ -8,6 +8,9 @@ let aLink = document.createElement("a");
 
 fillTable = (response) => {
 
+    quantityItens = window.localStorage.length
+    cartQuantityItens.innerHTML = quantityItens;
+
     for(let i in response){
 
         const card = document.createElement("article");
