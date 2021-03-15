@@ -6,6 +6,8 @@ let cartProductLense = "";
 let optionSelect = "";
 let cameraName = "";
 let cameraPrice = "";
+let camId = "";
+let localStorageKey = "";
 
 
 
@@ -22,9 +24,14 @@ const buyButton = document.getElementById("buyItem");
 
 itemCard = (response) => {
 
+    quantityItens = window.localStorage.length
+    cartQuantityItens.innerHTML = quantityItens;
+
     for(let i in response){
 
         if(getUrlId[1] == response[i]._id){
+
+            camId = response[i]._id;
 
             imgCard.src = response[i].imageUrl;
             cardText.innerHTML = response[i].description;
@@ -45,6 +52,23 @@ itemCard = (response) => {
             }
         }
     }
+    for(let c = 1; c <= localStorage.length; c++){
+        localStorageKey = c;
+    }
+    localStorageQtt = localStorageKey + 1;
+
+    buyButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        cartProductLense = document.querySelector('select').value;
+        console.log(cartProductLense);   
+        
+        const data = {
+            name: cameraName,
+            price: cameraPrice,
+            lenses: optionSelect.value
+        };
+        localStorage.setItem(localStorageQtt, JSON.stringify(data));
+    });
 }
 
 init = async () => {
@@ -53,29 +77,7 @@ init = async () => {
         const response = await requestPromise;
         itemCard(response);
     }catch(error){
-        console.log(error +'aaa');
+        console.log(error);
     }
 }
 init();
-
-buyButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    cartProductLense = document.querySelector('select').value;
-    console.log(cartProductLense);   
-    const data = {
-        name: cameraName,
-        price: cameraPrice,
-        lenses: optionSelect.value
-    };
-    localStorage.setItem(cameraName + optionSelect.value + cameraPrice, JSON.stringify(data));
-});
-
-
-/*  ByteLengthQueuingStrategy.addEventListener('click',() => {       
-        const data = {
-            name: response.name,
-            price: response.price
-            };
-            localStorage.setItem(response.name + optionSelect, JSON.stringify(data));
-            }); */
-
