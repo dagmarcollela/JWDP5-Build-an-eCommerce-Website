@@ -23,3 +23,7 @@ init();
 activeButton.addEventListener('click', () => {
     window.location.assign("pages/shop.html");
 })
+
+document.getElementById("email").addEventListener('click',() => {
+    window.open('mailto:dagmarcollela@gmail.com');
+})
