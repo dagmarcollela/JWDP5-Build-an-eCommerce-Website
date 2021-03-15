@@ -53,4 +53,61 @@ main .container #second-row #btn-goto-shopping {
 main .container #third-row {
   padding-top: 5%;
 }
+
+footer ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+footer .social-icon {
+  height: 50px;
+  width: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  font-size: 27px;
+  margin-right: 11px;
+  cursor: pointer;
+}
+
+footer .social-twitter {
+  background-color: #55acee;
+}
+
+footer .social-facebook {
+  background-color: #3b5999;
+}
+
+footer .social-linkedin {
+  background-color: #0077B5;
+}
+
+footer .social-google {
+  background-color: #dd4b39;
+}
+
+footer .social-instagram {
+  background-color: #dd4b39;
+}
+
+footer .social-icon i {
+  -webkit-transition: 0.4s all;
+  transition: 0.4s all;
+}
+
+footer .social-icon:hover i {
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+}
 /*# sourceMappingURL=main.css.map */
