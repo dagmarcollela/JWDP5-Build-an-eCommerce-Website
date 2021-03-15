@@ -1,7 +1,8 @@
 const apiAddress = "http://localhost:3000/api/cameras";
 const activeLabel = document.getElementById("lb_msg_error");
+const cartQuantityItens = document.getElementById("cartQttItens");
 
-let checkStatus = "";
+let quantityItens = "";
 
 getApi = () => {
     return new Promise((resolve, reject) => {
@@ -13,6 +14,8 @@ getApi = () => {
                 if(request.status === 200) {
                     resolve(JSON.parse(request.response));
                     activeLabel.style.display = "none";
+                    quantityItens = window.localStorage.length
+                    cartQuantityItens.innerHTML = quantityItens;
                 }else{
                     reject('Server is offline');
                     activeLabel.style.display = "block";
