@@ -1,0 +1,32 @@
+$primaryColor: #f3eaf1;
+$whiteColor: white;
+
+$fontCairo: 'Cairo', sans-serif;
+
+html, body{
+    overflow-x:hidden;
+    overflow-y:hidden;
+    height: 100%;
+}
+header{
+    & #header__navBar{
+        background-color: $primaryColor;
+
+        & .logo_img{
+            margin-right: 10%;
+        }
+        
+        & .cart{
+            margin-right: 5%;
+
+            & .bx-cart:before{
+                font-size: 2rem;
+            }
+        }
+    }
+}
+main{
+    width: 80vw;
+    margin-left: 10%;
+
+}
