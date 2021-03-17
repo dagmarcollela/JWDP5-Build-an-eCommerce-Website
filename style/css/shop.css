@@ -34,4 +34,14 @@ main {
       flex-wrap: wrap;
   margin-left: 25%;
 }
+
+main a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main a :hover {
+  text-decoration: none;
+  color: #f3eaf1;
+}
 /*# sourceMappingURL=shop.css.map */
