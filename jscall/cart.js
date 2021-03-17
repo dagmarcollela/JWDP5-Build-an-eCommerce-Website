@@ -4,8 +4,6 @@ let price = "";
 
 const tBody = document.querySelector("tbody");
 
-
-
 cart = () => {
     for( let b = 1; b <= localStorage.length; b++){
         key = window.localStorage.getItem(b);
@@ -29,7 +27,7 @@ cart = () => {
 
             tBody.appendChild(tr2);
 
-            tr2.innerHTML += "<td colspan='3'>" + " ________________________________________________________________________________________________" + "</td>";
+            tr2.innerHTML += "<td colspan='3'>" + " " + "</td>";
 
             const tr3 = document.createElement("tr");
 
@@ -43,3 +41,30 @@ cart = () => {
 
 }
 cart();
+
+const namee = document.getElementById("formName");
+const email = document.getElementById("inputEmail4");
+const address = document.getElementById("inputAddress");
+const address2 = document.getElementById("inputAddress");
+const city = document.getElementById("inputCity");
+const zip = document.getElementById("inputZip");
+
+const codeBuy = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+
+document.getElementById("buyNow").addEventListener('click', (event) => {
+   const formData = { 
+        name: namee,
+        email: email,
+        address: address,
+        address2: address2,
+        city: city,
+        zip: zip,
+        code: codeBuy
+    }
+    localStorage.setItem(namee + codeBuy, JSON.stringify(formData));
+    popUp();
+})
+
+popUp = (URL) =>{
+    window.open(URL, 'janela','width=660, height=510, top=100, left=699, scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no,resizable=no, fullscreen=no');
+}
