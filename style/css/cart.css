@@ -1,0 +1,27 @@
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+header #header__navBar {
+  background-color: #f3eaf1;
+}
+
+header #header__navBar .logo_img {
+  margin-right: 10%;
+}
+
+header #header__navBar .cart {
+  margin-right: 5%;
+}
+
+header #header__navBar .cart .bx-cart:before {
+  font-size: 2rem;
+}
+
+main {
+  width: 80vw;
+  margin-left: 10%;
+}
+/*# sourceMappingURL=cart.css.map */
