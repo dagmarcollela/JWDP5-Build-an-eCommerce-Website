@@ -19,6 +19,7 @@ const imgCard = document.getElementById("imgCard");
 const cardText = document.getElementById("cardText");
 const divSelect = document.getElementById("inlineFormCustomSelectPref");
 const buyButton = document.getElementById("buyItem");
+const cartCameraName = document.getElementById("cameraName");
 
 
 
@@ -34,8 +35,11 @@ itemCard = (response) => {
             camId = response[i]._id;
 
             imgCard.src = response[i].imageUrl;
+
+            cartCameraName.innerHTML += "<p>" + "<b>" + response[i].name + "</b>" + "</p>" + "</br>";
             cardText.innerHTML = response[i].description;
             cardText.innerHTML += "<p>" + "</br>" + "<b>" + "	&#163;" + response[i].price / 100 + "</b>" + "</p>";
+
             getLenses = response[i].lenses
 
             cameraName = response[i].name;
@@ -65,7 +69,7 @@ itemCard = (response) => {
         const data = {
             name: cameraName,
             price: cameraPrice,
-            lenses: optionSelect.value
+            lenses: cartProductLense
         };
         localStorage.setItem(localStorageQtt, JSON.stringify(data));
     });
