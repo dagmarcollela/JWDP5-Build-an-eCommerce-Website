@@ -1,3 +1,5 @@
+let price = 0;
+
 const imgCard = document.getElementById("img-card");
 const main = document.querySelector("main");
 const cardTitle = document.getElementById("card-title");
@@ -30,9 +32,11 @@ fillTable = (response) => {
         card.appendChild(cardImg);
         main.appendChild(aLink);
 
+        price = response[i].price / 100;
+
         card.innerHTML += "<h2>" + response[i].name +"</h2>";
         card.innerHTML += "<p>" + response[i].description + "</p>";
-        card.innerHTML += "<p>" + "	&#163;" + response[i].price / 100 + "</p>";
+        card.innerHTML += "<p>" + "Price " + "	&#163;" + price.toFixed(2) + "</p>";
     }
 }
 
@@ -54,5 +58,4 @@ init();
 
 aLink.addEventListener('click', () => {
     window.location.assign("item.html");
-    console.log(itemID);
 });
