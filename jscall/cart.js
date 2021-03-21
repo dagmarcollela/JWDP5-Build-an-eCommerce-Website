@@ -1,11 +1,13 @@
 let key = [];
 let total = 0;
-let price = "";
+let price = 0;
+let lastAddInCart = 0;
 
 const tBody = document.querySelector("tbody");
 
 cart = () => {
     for( let b = 1; b <= localStorage.length; b++){
+
         key = window.localStorage.getItem(b);
         key = JSON.parse(key);
         
@@ -36,35 +38,44 @@ cart = () => {
             tr3.innerHTML += "<td colspan='2'>" + "Total " + "</td>";
             tr3.innerHTML += "<td>" + "&#163;" + total.toFixed(2) + "</td>";
         }
-        
     }
-
 }
-cart();
 
-const namee = document.getElementById("formName");
-const email = document.getElementById("inputEmail4");
-const address = document.getElementById("inputAddress");
-const address2 = document.getElementById("inputAddress");
-const city = document.getElementById("inputCity");
-const zip = document.getElementById("inputZip");
+init = async () => {
+    try{
+        cart();
+    }catch(error){
+        console.log(error);
+    }
+}
+init();
 
-const codeBuy = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
+const codeBuy = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 10);
 
 document.getElementById("buyNow").addEventListener('click', (event) => {
-   const formData = { 
+    event.preventDefault();
+
+    const namee = document.getElementById("formName").value;
+    const email = document.getElementById("inputEmail4").value;
+    const address = document.getElementById("inputAddress").value;
+    const address2 = document.getElementById("inputAddress2").value;
+    const city = document.getElementById("inputCity").value;
+    const zip = document.getElementById("inputZip").value;
+
+   const data = { 
         name: namee,
         email: email,
         address: address,
         address2: address2,
         city: city,
         zip: zip,
-        code: codeBuy
-    }
-    localStorage.setItem(namee + codeBuy, JSON.stringify(formData));
-    popUp();
-})
+        code: codeBuy,
+        total: total.toFixed(2),
+        paid: "PAID BY CARD",
+        itens: localStorage.length
+    };
+    lastAddInCart = localStorage.length + 1;
+    localStorage.setItem(lastAddInCart, JSON.stringify(data));
 
-popUp = (URL) =>{
-    window.open(URL, 'janela','width=660, height=510, top=100, left=699, scrollbars=yes, status=no, toolbar=no, location=no, directories=no, menubar=no,resizable=no, fullscreen=no');
-}
+    window.location.assign("confirmation.html");
+})
