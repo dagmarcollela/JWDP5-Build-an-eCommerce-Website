@@ -72,6 +72,7 @@ itemCard = (response) => {
             lenses: cartProductLense
         };
         localStorage.setItem(localStorageQtt, JSON.stringify(data));
+        window.location.assign("./shop.html");
     });
 }
 
