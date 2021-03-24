@@ -1,6 +1,5 @@
 let key = [];
 let total = 0;
-let price = 0;
 let lastAddInCart = 0;
 
 const tBody = document.querySelector("tbody");
@@ -16,7 +15,7 @@ cart = () => {
         key = window.localStorage.getItem(b);
         key = JSON.parse(key);
         
-        price = key.price / 100;
+        let price = key.price / 100;
 
         total = price + total;
 
@@ -31,9 +30,10 @@ cart = () => {
         editBtn.type = "button";
         editBtn.classList.add("btn", "btn-warning");
         editBtn.innerHTML = "Edit";
+        editBtn.value = key._id;
 
         editBtn.onclick = () => {
-            window.location.assign("item.html?id="+ key._id);
+            window.location.assign("item.html?id="+ editBtn.value);
         }
 
         tr.appendChild(editBtn);
@@ -43,11 +43,11 @@ cart = () => {
         deleteBtn.type = "button";
         deleteBtn.classList.add("btn", "btn-danger");
         deleteBtn.innerHTML = "Delete";
+        deleteBtn.value = b;
 
-        deleteBtn.onclick = (event) => {
-            event.preventDefault();
-            localStorage.removeItem(key._id);
-            history.go(0);
+        deleteBtn.onclick = () => {
+            localStorage.removeItem(deleteBtn.value);
+            location.reload();
         }
 
         tr.appendChild(deleteBtn);
