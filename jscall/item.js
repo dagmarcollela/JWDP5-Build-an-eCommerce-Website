@@ -69,7 +69,8 @@ itemCard = (response) => {
         const data = {
             name: cameraName,
             price: cameraPrice,
-            lenses: cartProductLense
+            lenses: cartProductLense,
+            _id: getUrlId[1]
         };
         localStorage.setItem(localStorageQtt, JSON.stringify(data));
         window.location.assign("./shop.html");
