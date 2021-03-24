@@ -4,8 +4,13 @@ let price = 0;
 let lastAddInCart = 0;
 
 const tBody = document.querySelector("tbody");
+const deleteBtn = document.createElement("button");
+
 
 cart = () => {
+
+    
+
     for( let b = 1; b <= localStorage.length; b++){
 
         key = window.localStorage.getItem(b);
@@ -20,6 +25,32 @@ cart = () => {
         tr.innerHTML += "<td>" + key.name + "</td>";
         tr.innerHTML += "<td>" + key.lenses + "</td>";
         tr.innerHTML += "<td>" + "&#163;" + price.toFixed(2) + "</td>" ;
+        
+        //Button to edit item
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        editBtn.classList.add("btn", "btn-warning");
+        editBtn.innerHTML = "Edit";
+
+        editBtn.onclick = () => {
+            window.location.assign("item.html?id="+ key._id);
+        }
+
+        tr.appendChild(editBtn);
+
+        //button to delete item
+        const deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.classList.add("btn", "btn-danger");
+        deleteBtn.innerHTML = "Delete";
+
+        deleteBtn.onclick = (event) => {
+            event.preventDefault();
+            localStorage.removeItem(key._id);
+            history.go(0);
+        }
+
+        tr.appendChild(deleteBtn);
 
         tBody.appendChild(tr);
 
