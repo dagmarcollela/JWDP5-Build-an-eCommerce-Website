@@ -17,7 +17,7 @@ fillTable = (response) => {
 
         const card = document.createElement("article");
         const cardImg = document.createElement("img");
-        aLink = document.createElement("a");
+        let aLink = document.createElement("a");
 
         card.classList.add("card");
         card.style.width = "18rem";
@@ -28,7 +28,7 @@ fillTable = (response) => {
         cardImg.setAttribute("width", "100%");
         cardImg.setAttribute("src", response[i].imageUrl);
         
-        aLink.appendChild(card)
+        aLink.appendChild(card);
         card.appendChild(cardImg);
         main.appendChild(aLink);
 
@@ -50,12 +50,7 @@ init = async () => {
             window.location.assign("item.html");
         });
     }catch(error){
-        console.log(error + "Deu Erro brother");
+        console.log(error);
     }
 }
 init();
-
-
-aLink.addEventListener('click', () => {
-    window.location.assign("item.html");
-});
