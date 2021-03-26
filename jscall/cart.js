@@ -13,25 +13,30 @@ cart = () => {
         key = window.localStorage.getItem(b);
         key = JSON.parse(key);
 
-        let price = key.price / 100;
+        if( key.price == null){
+            localStorage.clear();
+        }
 
-        total = price + total;
+        key.price /= 100;
+
+        total = key.price + total;
 
         const tr = document.createElement("tr");
 
         tr.innerHTML += "<td>" + key.name + "</td>";
         tr.innerHTML += "<td>" + key.lenses + "</td>";
-        tr.innerHTML += "<td>" + "&#163;" + price.toFixed(2) + "</td>";
+        tr.innerHTML += "<td>" + "&#163;" + key.price.toFixed(2) + "</td>";
 
         //Button to edit item
         const editBtn = document.createElement("button");
         editBtn.type = "button";
-        editBtn.classList.add("btn", "btn-warning");
+        editBtn.classList.add("btn", "btn-warning", "btnEdit");
         editBtn.innerHTML = "Edit";
         editBtn.value = key._id;
 
         editBtn.onclick = () => {
             window.location.assign("item.html?id=" + editBtn.value);
+            localStorage.removeItem(b);
         }
 
         tr.appendChild(editBtn);
@@ -39,13 +44,14 @@ cart = () => {
         //button to delete item
         const deleteBtn = document.createElement("button");
         deleteBtn.type = "button";
-        deleteBtn.classList.add("btn", "btn-danger");
+        deleteBtn.classList.add("btn", "btn-danger", "btnDelete");
         deleteBtn.innerHTML = "Delete";
         deleteBtn.value = b;
 
         deleteBtn.onclick = () => {
             localStorage.removeItem(deleteBtn.value);
-            location.reload();
+            window.location.assign("cart.html");
+            //location.reload();
         }
 
         tr.appendChild(deleteBtn);
@@ -78,8 +84,7 @@ init = async () => {
         await requestPromise;
         cart();
     } catch (error) {
-        console.log(error);
-        window.location.assign("../index.html");    
+        console.log(error);   
     }
 }
 init();
