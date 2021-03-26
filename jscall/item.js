@@ -12,7 +12,7 @@ let localStorageKey = "";
 
 
 getUrl = window.location.href;
-getUrlId = getUrl.split('id=');
+getUrlId = getUrl.split('id='); // got the product id in the url
 
 
 const imgCard = document.getElementById("imgCard");
@@ -26,7 +26,7 @@ const cartCameraName = document.getElementById("cameraName");
 itemCard = (response) => {
 
     quantityItens = window.localStorage.length
-    cartQuantityItens.innerHTML = quantityItens;
+    cartQuantityItens.innerHTML = quantityItens; // show the total of itens in cart
 
     for(let i in response){
 
@@ -45,21 +45,25 @@ itemCard = (response) => {
             cameraName = response[i].name;
             cameraPrice = response[i].price;
             
+            // get all the selected camera lenses
             for(let a in getLenses){
+
                 let separeLenses = getLenses[a].split(',');
+
                 optionSelect = document.createElement("option");
-                optionSelect.innerHTML = separeLenses;
-                optionSelect.setAttribute("value", separeLenses);
+                optionSelect.innerHTML = separeLenses; 
+                optionSelect.setAttribute("value", separeLenses); // use the camera lenses name as an value
                 
                 let valueSelect = document.createElement("value");
                 divSelect.appendChild(optionSelect);                
             }
         }
     }
+    // 
     for(let c = 1; c <= localStorage.length; c++){
         localStorageKey = c;
     }
-    localStorageQtt = localStorageKey + 1;
+    localStorageQtt = localStorageKey + 1; // to create an key for save in the localstorage and note overwrite
 
     buyButton.addEventListener('click', (event) => {
         event.preventDefault();
@@ -84,6 +88,7 @@ init = async () => {
         itemCard(response);
     }catch(error){
         console.log(error);
+        window.location.assign("../index.html");
     }
 }
 init();
