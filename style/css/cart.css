@@ -24,4 +24,13 @@ main {
   width: 80vw;
   margin-left: 10%;
 }
+
+main table .btnEdit {
+  background-color: orange;
+}
+
+main table .btnDelete {
+  background-color: #ee3b3b;
+  margin-left: 3%;
+}
 /*# sourceMappingURL=cart.css.map */
