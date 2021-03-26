@@ -7,11 +7,9 @@ const cardDescritption = document.getElementById("card-description");
 
 let aLink = document.createElement("a");
 
-
 fillTable = (response) => {
 
-    quantityItens = window.localStorage.length
-    cartQuantityItens.innerHTML = quantityItens;
+    cartQuantityItens.innerHTML = window.localStorage.length // take the total the itens in localstorage and show in cart at the top of page
 
     for(let i in response){
 
@@ -40,17 +38,19 @@ fillTable = (response) => {
     }
 }
 
+aLink.addEventListener('click', () => {
+    window.location.assign("item.html");
+});
+
 init = async () => {
     try{
         const requestPromise = getApi();
         const response = await requestPromise;
         fillTable(response);
-
-        aLink.addEventListener('click', () => {
-            window.location.assign("item.html");
-        });
     }catch(error){
         console.log(error);
+        window.location.assign("../index.html");
+
     }
 }
 init();
