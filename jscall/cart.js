@@ -8,13 +8,11 @@ const deleteBtn = document.createElement("button");
 
 cart = () => {
 
-    
-
-    for( let b = 1; b <= localStorage.length; b++){
+    for (let b = 1; b <= localStorage.length; b++) {
 
         key = window.localStorage.getItem(b);
         key = JSON.parse(key);
-        
+
         let price = key.price / 100;
 
         total = price + total;
@@ -23,8 +21,8 @@ cart = () => {
 
         tr.innerHTML += "<td>" + key.name + "</td>";
         tr.innerHTML += "<td>" + key.lenses + "</td>";
-        tr.innerHTML += "<td>" + "&#163;" + price.toFixed(2) + "</td>" ;
-        
+        tr.innerHTML += "<td>" + "&#163;" + price.toFixed(2) + "</td>";
+
         //Button to edit item
         const editBtn = document.createElement("button");
         editBtn.type = "button";
@@ -33,7 +31,7 @@ cart = () => {
         editBtn.value = key._id;
 
         editBtn.onclick = () => {
-            window.location.assign("item.html?id="+ editBtn.value);
+            window.location.assign("item.html?id=" + editBtn.value);
         }
 
         tr.appendChild(editBtn);
@@ -54,7 +52,9 @@ cart = () => {
 
         tBody.appendChild(tr);
 
-        if(b == localStorage.length){
+        /* When the above for() finish to fill the table with cameras 
+        Create a new line with the total of value of all cameras*/
+        if (b == localStorage.length) {
 
             const tr2 = document.createElement("tr");
 
@@ -73,14 +73,18 @@ cart = () => {
 }
 
 init = async () => {
-    try{
+    try {
+        const requestPromise = getApi();
+        await requestPromise;
         cart();
-    }catch(error){
+    } catch (error) {
         console.log(error);
+        window.location.assign("../index.html");    
     }
 }
 init();
 
+// creating an aleatory string to use as order id
 const codeBuy = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 10);
 
 document.getElementById("buyNow").addEventListener('click', (event) => {
@@ -93,7 +97,7 @@ document.getElementById("buyNow").addEventListener('click', (event) => {
     const city = document.getElementById("inputCity").value;
     const zip = document.getElementById("inputZip").value;
 
-   const data = { 
+    const data = {
         name: namee,
         email: email,
         address: address,
