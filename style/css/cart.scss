@@ -28,5 +28,14 @@ header{
 main{
     width: 80vw;
     margin-left: 10%;
-
+    
+    & table{ 
+        & .btnEdit{
+            background-color:orange;
+        }
+        & .btnDelete{
+            background-color: #ee3b3b;
+            margin-left: 3%;
+        }
+    }
 }
